@@ -1,0 +1,67 @@
+class AssignmentTracker:  
+    def __init__(self):  
+        self.assignments = []  
+
+    def add_assignment(self, assignment):  
+        self.assignments.append(assignment)  
+        print(f'Added assignment: "{assignment}". Keep up the good work!')  
+
+    def update_assignment(self, index, new_assignment):  
+        if 0 <= index < len(self.assignments):  
+            old_assignment = self.assignments[index]  
+            self.assignments[index] = new_assignment  
+            print(f'Updated assignment from "{old_assignment}" to "{new_assignment}". You got this!')  
+        else:  
+            print("Invalid assignment number. Check your index.")  
+
+    def view_assignments(self):  
+        if not self.assignments:  
+            print("Looks like there are no assignments due. Enjoy your free time!")  
+        else:  
+            print("Your Assignments:")  
+            for index, assignment in enumerate(self.assignments):  
+                print(f"{index + 1}. {assignment}")  
+
+    def remove_assignment(self, index):  
+        if 0 <= index < len(self.assignments):  
+            removed_assignment = self.assignments.pop(index)  
+            print(f'Removed assignment "{removed_assignment}". Good job on moving forward!')  
+        else:  
+            print("Invalid assignment number. Check your index.")  
+
+
+def main():  
+    tracker = AssignmentTracker()  
+
+    while True:  
+        print("\nOptions:")  
+        print("1. Add Assignment")  
+        print("2. Update Assignment")  
+        print("3. View Assignments")  
+        print("4. Remove Assignment")  
+        print("5. Exit")  
+        
+        choice = input("Choose an option (1-5): ")  
+        
+        if choice == '1':  
+            assignment = input("Enter your assignment: ")  
+            tracker.add_assignment(assignment)  
+        elif choice == '2':  
+            tracker.view_assignments()  
+            index = int(input("Enter the assignment number to update: ")) - 1  
+            new_assignment = input("Enter the new assignment: ")  
+            tracker.update_assignment(index, new_assignment)  
+        elif choice == '3':  
+            tracker.view_assignments()  
+        elif choice == '4':  
+            tracker.view_assignments()  
+            index = int(input("Enter the assignment number to remove: ")) - 1  
+            tracker.remove_assignment(index)  
+        elif choice == '5':  
+            print("Good luck with your studies! Exiting the Assignment Tracker.")  
+            break  
+        else:  
+            print("Invalid choice. Please try again.")  
+
+if __name__ == "__main__":  
+    main()
