@@ -4,7 +4,7 @@ class AssignmentTracker:
 
     def add_assignment(self, assignment):  
         self.assignments.append(assignment)  
-        print(f'Added assignment: "{assignment}". Keep up the good work!')  
+        print(f'Added assignment: "{assignment}". Keep up the good work!') 
 
     def update_assignment(self, index, new_assignment):  
         if 0 <= index < len(self.assignments):  
